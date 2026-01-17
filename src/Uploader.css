@@ -1,0 +1,399 @@
+.uploader-container {
+  max-width: 650px;
+  margin: 40px auto;
+  padding: 40px;
+  background: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.06);
+  font-family: -apple-system, Inter, sans-serif;
+}
+
+/* --- PRO UPLOAD BOX --- */
+.upload-card {
+  border: 2px dashed #e0e0e0;
+  border-radius: 12px;
+  padding: 0; /* Changed to 0 so the label fills the space */
+  text-align: center;
+  transition: all 0.3s ease;
+  background: #fafafa;
+  position: relative;
+  overflow: hidden;
+}
+
+.upload-card:hover {
+  border-color: #007bff;
+  background: #f8fbff;
+}
+
+/* Hides the ugly default browser button */
+.file-input-hidden {
+  opacity: 0;
+  width: 0.1px;
+  height: 0.1px;
+  position: absolute;
+}
+
+/* Makes the whole dashed box clickable and clean */
+.custom-file-label {
+  display: block;
+  padding: 40px; /* Default height */
+  cursor: pointer;
+  color: #555;
+  transition: padding 0.3s ease; /* Smooth shrink animation */
+}
+
+/* Add a new helper class */
+.upload-card.file-selected .custom-file-label {
+  padding: 15px; /* Shrinks the box once you have a file */
+}
+
+/* --- BUTTON --- */
+/* --- PRIMARY BUTTON (Optimize & Generate) --- */
+.btn-primary {
+  width: 100%;
+  padding: 16px;
+  margin-top: 25px;
+  border: none;
+  border-radius: 10px;
+  background: #007bff;
+  color: white;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
+  transition: all 0.2s ease;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: #006ae0;
+  transform: translateY(-1px);
+  box-shadow: 0 6px 15px rgba(0, 123, 255, 0.3);
+}
+
+/* --- SECONDARY BUTTON (Optimize Another) --- */
+.btn-secondary {
+  width: 100%;
+  padding: 14px;
+  margin-top: 20px;
+  background: #ffffff;
+  border: 2px solid #007bff; /* Solid blue outline */
+  color: #007bff;
+  border-radius: 10px;
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-secondary:hover {
+  background: #f0f7ff; /* Very light blue tint on hover */
+  border-color: #0056b3;
+  color: #0056b3;
+}
+
+/* Common disabled state */
+.btn-primary:disabled, .btn-secondary:disabled {
+  background: #f5f5f5;
+  border-color: #e0e0e0;
+  color: #ccc;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+
+/* --- THE BLACK SCORE BOX (Fixed Spacing) --- */
+.score-section {
+  margin-top: 30px;
+  padding: 24px;
+  background: #1a1a1a;
+  color: white;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Adds breathing room between rows */
+}
+
+.score-header, .score-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px; /* Keeps "Latency" and "Reduced" from touching */
+}
+
+.progress-container {
+  height: 8px;
+  background: #333;
+  border-radius: 10px;
+  margin: 10px 0;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: #00d1b2;
+  transition: width 1.5s cubic-bezier(0.1, 0, 0.3, 1);
+}
+
+/* --- ASSET GALLERY --- */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.asset-card {
+  background: #fff;
+  border: 1px solid #eee;
+  padding: 12px;
+  border-radius: 10px;
+  transition: transform 0.2s ease;
+}
+
+.asset-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+.img-preview-box {
+  height: 110px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f3f3f3;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.img-preview-box img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+}
+
+.img-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.asset-label {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #888;
+}
+
+.asset-ratio {
+  font-size: 10px;
+  color: #00d1b2;
+  font-weight: 700;
+}
+
+/* --- UPDATED FOOTER & LINK SECTION --- */
+
+/* This replaces your old .img-footer */
+.asset-info {
+  display: flex;
+  justify-content: space-between; /* Pushes name to left, link to right */
+  align-items: center;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #f0f0f0; /* Technical separator line */
+}
+
+/* This replaces .asset-label or .asset-name for the bottom text */
+.asset-name {
+  font-size: 11px;
+  font-weight: 700;
+  color: #1a1a1a;
+  letter-spacing: 0.3px;
+}
+
+/* This replaces your old .download-link with a professional "Button" look */
+.asset-link {
+  font-size: 10px;
+  color: #007bff;
+  text-decoration: none;
+  font-weight: 600;
+  background: #f0f7ff; /* Pro light blue bubble */
+  padding: 4px 10px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.asset-link:hover {
+  background: #007bff;
+  color: white;
+}
+
+/* Keep these for the top metadata of the card */
+.asset-meta {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.asset-dim {
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  color: #888;
+}
+
+.pro-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 20px;
+}
+
+.api-badge-live {
+  font-size: 10px;
+  color: #888;
+}
+
+.file-name-display {
+  color: #007bff;
+}
+
+/* --- ADMIN PANEL STYLES --- */
+.admin-section {
+  margin-top: 50px;
+  border-top: 2px solid #eee;
+  padding-top: 30px;
+}
+
+.admin-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.admin-title {
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.admin-subtitle {
+  font-size: 11px;
+  color: #666;
+  margin: 0;
+}
+
+.btn-admin-toggle {
+  padding: 8px 16px;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  background: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-admin-toggle:hover {
+  background: #f9f9f9;
+}
+
+/* --- LOG TABLE --- */
+.admin-table-wrapper {
+  overflow-x: auto;
+  background: white;
+  border-radius: 8px;
+  border: 1px solid #eee;
+  margin-top: 10px;
+}
+
+.log-table {
+  width: 100%;
+  font-size: 12px;
+  text-align: left;
+  border-collapse: collapse;
+}
+
+.log-table th {
+  background: #f8f9fa;
+  padding: 12px;
+  border-bottom: 2px solid #eee;
+  color: #444;
+}
+
+.log-table td {
+  padding: 10px;
+  border-bottom: 1px solid #f1f1f1;
+}
+
+.mono-text {
+  font-family: monospace;
+  color: #666;
+}
+
+.savings-text {
+  color: #00d1b2;
+  font-weight: bold;
+}
+
+.empty-msg {
+  padding: 20px;
+  text-align: center;
+  color: #999;
+}
+
+.section-label {
+  font-size: 11px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  color: #888;
+}
+
+
+.options-panel {
+  background: #fdfdfd;
+  border: 1px solid #eee;
+  padding: 20px;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+.option-group {
+  margin-bottom: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option-group label {
+  font-size: 13px;
+  color: #444;
+}
+
+.quality-slider {
+  width: 100%;
+  cursor: pointer;
+}
+
+.option-group-inline {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.option-group-inline label {
+  font-size: 13px;
+  color: #444;
+  cursor: pointer;
+}
+
+.option-group-inline input {
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+}
