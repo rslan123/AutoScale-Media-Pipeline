@@ -25,7 +25,7 @@
   background: #f8fbff;
 }
 
-/* Hides the ugly default browser button */
+
 .file-input-hidden {
   opacity: 0;
   width: 0.1px;
@@ -216,7 +216,7 @@
   letter-spacing: 0.3px;
 }
 
-/* This replaces your old .download-link with a professional "Button" look */
+
 .asset-link {
   font-size: 10px;
   color: #007bff;

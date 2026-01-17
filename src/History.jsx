@@ -1,8 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { fetchAllLogs } from "./services/imageService";
 
-// If your logs contain a "file_name" like "abc.jpg" or key, we can build a preview URL if you want.
-// For now we show file name + metadata. (Safe, always works.)
+
+// For now we show file name + metadata
 
 function Badge({ tone = "gray", children }) {
   const map = {
@@ -20,7 +20,7 @@ function Badge({ tone = "gray", children }) {
 
 function formatDate(ts) {
   if (!ts) return "-";
-  // Your backend uses epoch seconds
+  //  epoch seconds
   const d = new Date(ts * 1000);
   return d.toLocaleString();
 }
@@ -157,7 +157,7 @@ export default function History({ userEmail, isAdmin = false }) {
       </div>
 
       <div className="mt-4 rounded-2xl border border-slate-200 bg-slate-50 p-4 text-sm text-slate-600">
-        Tip: This page proves DynamoDB metadata is being used (great for grading).
+        This page proves DynamoDB metadata is being used.
       </div>
     </div>
   );
